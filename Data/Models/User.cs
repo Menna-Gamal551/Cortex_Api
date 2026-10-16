@@ -1,0 +1,22 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Cortex_Api.Data.Models
+{
+    public class User
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public required string Name { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public required string UserName { get; set; }
+        [Required]
+        public required string Password { get; set; }
+
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? UpdateDate { get; set; }
+
+    }
+}

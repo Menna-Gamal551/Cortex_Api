@@ -146,3 +146,4 @@ C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.sourcelink.json

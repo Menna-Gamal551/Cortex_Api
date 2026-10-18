@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cortex_Api.Data.Models
 {
@@ -14,9 +15,16 @@ namespace Cortex_Api.Data.Models
         public required string UserName { get; set; }
         [Required]
         public required string Password { get; set; }
-
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? UpdateDate { get; set; }
+
+        [ForeignKey("deviceId")]
+        public int ? DeviceId { get; set; }
+        public Device? device { get; set; }
+
+        public ICollection<AccountMetaData>? AccountMetaDatas { get; set; }
+        public ICollection<Auditlog>?Auditlogs { get; set; }
+        public ICollection<SecurityEvent>?SecurityEvents { get; set; }
 
     }
 }

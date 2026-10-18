@@ -22,6 +22,40 @@ namespace Cortex_Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Cortex_Api.Data.Models.Device", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DeviceUid")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FirmwareVersion")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsPaired")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastConnectedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("PairedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceUid")
+                        .IsUnique();
+
+                    b.ToTable("Devices");
+                });
+
             modelBuilder.Entity("Cortex_Api.Data.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -32,6 +66,9 @@ namespace Cortex_Api.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeviceId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -52,10 +89,21 @@ namespace Cortex_Api.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DeviceId");
+
                     b.HasIndex("UserName")
                         .IsUnique();
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Cortex_Api.Data.Models.User", b =>
+                {
+                    b.HasOne("Cortex_Api.Data.Models.Device", "device")
+                        .WithMany()
+                        .HasForeignKey("DeviceId");
+
+                    b.Navigation("device");
                 });
 #pragma warning restore 612, 618
         }

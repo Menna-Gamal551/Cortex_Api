@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\securityevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\securityevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\accountmetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\accountmetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\breachresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\breachresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\data\\models\\dtos\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:data\\models\\dtos\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EC3CC058-223E-4A86-AA61-9A1C8727D7F0}|Cortex_Api.csproj|c:\\users\\merra\\source\\repos\\cortex_api\\migrations\\20261016170835_adduserdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,24 +54,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SecurityEvent.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\SecurityEvent.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\SecurityEvent.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\SecurityEvent.cs",
+              "RelativeToolTip": "Data\\Models\\SecurityEvent.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAqwBcAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T23:11:28.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Auditlog.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\Auditlog.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Auditlog.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\Auditlog.cs",
+              "RelativeToolTip": "Data\\Models\\Auditlog.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T23:06:55.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Device.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\Device.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Device.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\Device.cs",
+              "RelativeToolTip": "Data\\Models\\Device.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T21:38:37.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\User.cs",
+              "RelativeToolTip": "Data\\Models\\User.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBoAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T21:37:38.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BreachResult.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\BreachResult.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\BreachResult.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\BreachResult.cs",
+              "RelativeToolTip": "Data\\Models\\BreachResult.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T22:22:15.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\DTOs\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\DTOs\\LoginRequestDto.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\DTOs\\LoginRequestDto.cs",
+              "RelativeToolTip": "Data\\Models\\DTOs\\LoginRequestDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T22:16:18.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountMetaData.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\AccountMetaData.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\AccountMetaData.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\AccountMetaData.cs",
+              "RelativeToolTip": "Data\\Models\\AccountMetaData.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAwwBkAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T21:59:10.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T21:47:09.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-16T19:18:29.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "ApiResponse.cs",
               "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Data\\Models\\DTOs\\ApiResponse.cs",
               "RelativeDocumentMoniker": "Data\\Models\\DTOs\\ApiResponse.cs",
@@ -52,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "20261016170835_addUserDB.cs",
               "DocumentMoniker": "C:\\Users\\merra\\source\\repos\\Cortex_Api\\Migrations\\20261016170835_addUserDB.cs",
               "RelativeDocumentMoniker": "Migrations\\20261016170835_addUserDB.cs",
@@ -60,8 +196,7 @@
               "RelativeToolTip": "Migrations\\20261016170835_addUserDB.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAABwAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-16T17:08:36.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-16T17:08:36.056Z"
             }
           ]
         }

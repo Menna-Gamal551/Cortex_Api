@@ -9,6 +9,7 @@ namespace Cortex_Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class AuthController(IAuthService authService) : ControllerBase
     {
         private readonly IAuthService _authService= authService;

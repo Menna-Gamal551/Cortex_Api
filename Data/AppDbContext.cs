@@ -21,7 +21,21 @@ namespace Cortex_Api.Data
                 .IsUnique();
 
             modelBuilder.Entity<Device>().HasIndex(e=>e.DeviceUid).IsUnique();
-           
+            modelBuilder.Entity<User>()
+                                   .HasOne(u => u.device)
+                                   .WithOne()
+                                   .HasForeignKey<User>(u => u.DeviceId)
+                                   .IsRequired(false);
+
+            modelBuilder.Entity<User>()
+                                 .HasIndex(u => u.DeviceId)
+                                 .IsUnique()
+                                 .HasFilter("[DeviceId] IS NOT NULL");
+            modelBuilder.Entity<User>()
+    .HasMany(u => u.AccountMetaDatas)
+    .WithOne(a => a.user)
+    .HasForeignKey(a => a.UserId)
+    .IsRequired();
         }
     }
 

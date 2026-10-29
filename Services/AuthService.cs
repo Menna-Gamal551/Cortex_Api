@@ -19,23 +19,28 @@ namespace Cortex_Api.Services
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher<User> _passwordHasher;
-        public AuthService( AppDbContext db, IConfiguration configuration,IMapper mapper, IPasswordHasher<User> passwordHasher)
+        private readonly ISecurityEventService _securityEventService;
+        public AuthService(AppDbContext db, IConfiguration configuration, IMapper mapper, IPasswordHasher<User> passwordHasher, ISecurityEventService securityEventService)
         {
             _configuration = configuration;
             _db = db;
             _mapper = mapper;
             _passwordHasher = passwordHasher;
+            _securityEventService=securityEventService;
         }
         public async Task<bool> IsUserNameExistAsync(string userName)
         {
             return await _db.Users.AnyAsync(e=>e.UserName==userName);
         }
 
-        public async Task<LoginResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
+        public async Task<LoginResponseDto?> LoginAsync( LoginRequestDto loginRequestDto)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(e=>e.UserName==loginRequestDto.UserName);
+            var user = await _db.Users.FirstOrDefaultAsync(e => e.UserName == loginRequestDto.UserName);
+
             if (user == null)
             {
+                await _securityEventService.LogAsync(SecurityEventSeverity.Medium,"FailedLogin","Login failed: invalid credentials.");
+
                 throw new UnauthorizedAccessException(
                     "Invalid username or password.");
             }
@@ -47,14 +52,19 @@ namespace Cortex_Api.Services
 
             if (result == PasswordVerificationResult.Failed)
             {
+                await _securityEventService.LogAsync(SecurityEventSeverity.Medium,"FailedLogin", "Login failed: invalid credentials.",
+                    userId: user.Id);
+
                 throw new UnauthorizedAccessException(
                     "Invalid username or password.");
             }
-            var token=GeneratejwtToken(user);
-            return new LoginResponseDto()
+
+            var token = GeneratejwtToken(user);
+
+            return new LoginResponseDto
             {
                 Token = token,
-                userDTO=_mapper.Map<UserDto>(user)
+                userDTO = _mapper.Map<UserDto>(user)
             };
         }
         public async Task<UserDto?> RegisterAsync(RegisterRequestDto registerRequestDto)

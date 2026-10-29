@@ -45,9 +45,18 @@ namespace Cortex_Api
             builder.Services.AddAutoMapper(op =>
             {
                 op.CreateMap<User,UserDto >().ReverseMap();
+                op.CreateMap<CreateAccountMetaDataDto,AccountMetaData >().ReverseMap();
+                op.CreateMap<CreateAccountMetaDataDto,AccountMetaDataDto >().ReverseMap();
+                op.CreateMap<UpdateAccountMetaDataDto,AccountMetaDataDto >().ReverseMap();
+                op.CreateMap<UpdateAccountMetaDataDto,AccountMetaData >().ReverseMap();
+                op.CreateMap<AccountMetaDataDto,AccountMetaData >().ReverseMap();
+                op.CreateMap<Auditlog, AuditlogDto>().ReverseMap();
+                op.CreateMap<SecurityEvent, SecurityEventDto>().ReverseMap();
             });
 
             builder.Services.AddScoped<IAuthService, AuthService>();
+            builder.Services.AddScoped<IAuditLogService, AuditLogService>();
+            builder.Services.AddScoped<ISecurityEventService, SecurityEventService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

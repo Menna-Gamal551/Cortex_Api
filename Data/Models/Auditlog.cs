@@ -9,8 +9,8 @@ namespace Cortex_Api.Data.Models
         public int Id { get; set; }
        
         [MaxLength(100)]
-        public string Action { get; set; }
-        public DateTime OccuredAt { get; set; }= DateTime.Now;
+        public required string Action { get; set; }
+        public DateTime OccuredAt { get; set; }= DateTime.UtcNow;
         [MaxLength(1000)]
         public string? Details { get; set; }
         [ForeignKey("UserId")]

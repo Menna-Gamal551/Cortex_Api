@@ -9,9 +9,9 @@ namespace Cortex_Api.Data.Models
         public int Id { get; set; }
        
         [MaxLength(20)]
-        public string Severity { get; set; }
+        public required SecurityEventSeverity Severity { get; set; }
         [MaxLength(100)]
-        public string EventType { get; set; }
+        public required string EventType { get; set; }
         public DateTime OccuredAt { get; set; } = DateTime.Now;
         [MaxLength(1000)]
         public string? Details { get; set; }

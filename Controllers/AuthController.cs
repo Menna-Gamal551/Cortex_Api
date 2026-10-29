@@ -1,4 +1,6 @@
-﻿using Cortex_Api.Data.Models.DTOs;
+﻿using Cortex_Api.Data;
+using Cortex_Api.Data.Models.DTOs;
+using Cortex_Api.Services;
 using Cortex_Api.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -10,9 +12,13 @@ namespace Cortex_Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class AuthController(IAuthService authService) : ControllerBase
+    public class AuthController(IAuthService authService, ISecurityEventService securityEventService, ILogger<AuthController> logger) : ControllerBase
     {
         private readonly IAuthService _authService= authService;
+        private readonly ISecurityEventService _securityEventService =
+       securityEventService;
+        private readonly ILogger<AuthController> _logger = logger;
+
         [HttpGet("TestAuth")]
         [Authorize]
         public IActionResult TestAuth()
@@ -71,14 +77,13 @@ namespace Cortex_Api.Controllers
         }
 
 
-    
+
         [HttpPost("Login")]
         [ProducesResponseType(typeof(ApiResponse<LoginResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status401Unauthorized)]
-
-        public async Task<ActionResult<ApiResponse<LoginResponseDto>>> Login(LoginRequestDto loginRequestDTO)
+        public async Task<ActionResult<ApiResponse<LoginResponseDto>>> Login( LoginRequestDto loginRequestDTO)
         {
             try
             {
@@ -87,30 +92,28 @@ namespace Cortex_Api.Controllers
                     return BadRequest(ApiResponse<object>.BadRequest("Login Data is Required"));
                 }
 
-
                 var loginResponse = await _authService.LoginAsync(loginRequestDTO);
-                if (loginResponse==null)
+
+                if (loginResponse == null)
                 {
                     return BadRequest(ApiResponse<object>.BadRequest("Login Failed"));
                 }
 
+                var response = ApiResponse<LoginResponseDto>.Ok( "User Login Successfully",loginResponse);
 
-                var response = ApiResponse<LoginResponseDto>.Ok("User Login Successfully", loginResponse);
                 return Ok(response);
             }
             catch (UnauthorizedAccessException)
             {
-                return Unauthorized(ApiResponse<object>.Error( 401, "Invalid username or password.",null));
+                return Unauthorized(ApiResponse<object>.Error(401,"Invalid username or password.",null));
             }
+      
             catch (Exception ex)
             {
+                _logger.LogError(ex, "An unexpected error occurred during login.");
 
-                var errorresponse = ApiResponse<object>.Error( 500, "An unexpected error occurred.",  null);
-
-                return StatusCode(500, errorresponse);
+                return StatusCode(StatusCodes.Status500InternalServerError,ApiResponse<object>.Error(500,"An unexpected error occurred.", null));
             }
-
-
         }
 
     }

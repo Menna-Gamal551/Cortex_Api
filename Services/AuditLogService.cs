@@ -13,14 +13,19 @@ namespace Cortex_Api.Services
             _db = db;
         }
 
-        public async Task LogAsync(int userId, string action, string? details = null)
+        public async Task LogAsync(
+         int userId,
+         string action,
+         string? details = null,
+         int? deviceId = null)
         {
             var auditLog = new Auditlog
             {
                 UserId = userId,
                 Action = action,
                 OccuredAt = DateTime.UtcNow,
-                Details = details
+                Details = details,
+                DeviceId = deviceId
             };
 
             _db.Auditlogs.Add(auditLog);

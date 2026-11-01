@@ -18,10 +18,7 @@ namespace Cortex_Api.Data.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? UpdateDate { get; set; }
 
-        [ForeignKey("deviceId")]
-        public int ? DeviceId { get; set; }
         public Device? device { get; set; }
-
         public ICollection<AccountMetaData>? AccountMetaDatas { get; set; }
         public ICollection<Auditlog>?Auditlogs { get; set; }
         public ICollection<SecurityEvent>?SecurityEvents { get; set; }

@@ -1,7 +1,12 @@
 ﻿namespace Cortex_Api.Services.IServices
 {
-    public  interface  IAuditLogService
+    public interface IAuditLogService
     {
-        Task LogAsync(int userId, string action, string? details = null);
+        Task LogAsync(
+            int userId,
+            string action,
+            string? details = null,
+            int? deviceId = null
+        );
     }
 }

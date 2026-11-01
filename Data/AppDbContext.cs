@@ -1,6 +1,5 @@
 ﻿using Cortex_Api.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace Cortex_Api.Data
 {
@@ -12,6 +11,7 @@ namespace Cortex_Api.Data
         public DbSet<BreachResult> BreachResults { get; set; }
         public DbSet<SecurityEvent> SecurityEvents { get; set; }
         public DbSet<Auditlog> Auditlogs { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -20,23 +20,38 @@ namespace Cortex_Api.Data
                 .HasIndex(u => u.UserName)
                 .IsUnique();
 
-            modelBuilder.Entity<Device>().HasIndex(e=>e.DeviceUid).IsUnique();
-            modelBuilder.Entity<User>()
-                                   .HasOne(u => u.device)
-                                   .WithOne()
-                                   .HasForeignKey<User>(u => u.DeviceId)
-                                   .IsRequired(false);
+            // Device: نفس الجهاز الفعلي ما يتسجلش مرتين
+            modelBuilder.Entity<Device>()
+                .HasIndex(d => d.DeviceUid)
+                .IsUnique();
+
+            // User (0..1) ←→ Device: الـ FK في Device، وكل جهاز له صاحب
+            // الـ WithOne مع HasForeignKey بينشئ Unique Index على UserId تلقائيًا
+            modelBuilder.Entity<Device>()
+                .HasOne(d => d.user)
+                .WithOne(u => u.device)
+                .HasForeignKey<Device>(d => d.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // لما الجهاز يتمسح، الـ logs تفضل وعمود DeviceId فيها يبقى null
+            modelBuilder.Entity<Auditlog>()
+                .HasOne(a => a.device)
+                .WithMany(d => d.Auditlogs)
+                .HasForeignKey(a => a.DeviceId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<SecurityEvent>()
+                .HasOne(s => s.device)
+                .WithMany(d => d.SecurityEvents)
+                .HasForeignKey(s => s.DeviceId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<User>()
-                                 .HasIndex(u => u.DeviceId)
-                                 .IsUnique()
-                                 .HasFilter("[DeviceId] IS NOT NULL");
-            modelBuilder.Entity<User>()
-    .HasMany(u => u.AccountMetaDatas)
-    .WithOne(a => a.user)
-    .HasForeignKey(a => a.UserId)
-    .IsRequired();
+                .HasMany(u => u.AccountMetaDatas)
+                .WithOne(a => a.user)
+                .HasForeignKey(a => a.UserId)
+                .IsRequired();
         }
     }
-
 }

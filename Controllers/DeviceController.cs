@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cortex_Api.Data;
+using Cortex_Api.Data.Enums;
 using Cortex_Api.Data.Models;
 using Cortex_Api.Data.Models.DTOs;
 using Cortex_Api.Data.Models.DTOs.DeviceDTOs;
@@ -216,13 +217,20 @@ namespace Cortex_Api.Controllers
                     $"Device connected. Firmware version: {device.FirmwareVersion ?? "unknown"}",
                     device.Id);
 
+                var configuration = _mapper.ConfigurationProvider;
+
                 var dto = _mapper.Map<DeviceResponseDto>(device);
 
                 return Ok(ApiResponse<DeviceResponseDto>.Ok("Device connection recorded successfully.", dto));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500, ApiResponse<object>.Error(500, "An unexpected error occurred."));
+                Console.WriteLine(ex.ToString());
+
+                return StatusCode(
+                    500,
+                    ApiResponse<object>.Error(500, "An unexpected error occurred.")
+                );
             }
         }
 

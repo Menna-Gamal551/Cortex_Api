@@ -1,4 +1,4 @@
-﻿namespace Cortex_Api.Data
+﻿namespace Cortex_Api.Data.Enums
 {
     public enum SecurityEventSeverity
     {

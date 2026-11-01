@@ -1,4 +1,4 @@
-﻿using Cortex_Api.Data;
+﻿using Cortex_Api.Data.Enums;
 
 namespace Cortex_Api.Services.IServices
 {

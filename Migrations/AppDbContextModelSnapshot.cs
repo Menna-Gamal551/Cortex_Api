@@ -161,9 +161,15 @@ namespace Cortex_Api.Migrations
                     b.Property<DateTime>("PairedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DeviceUid")
+                        .IsUnique();
+
+                    b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Devices");
@@ -219,9 +225,6 @@ namespace Cortex_Api.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DeviceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -240,10 +243,6 @@ namespace Cortex_Api.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DeviceId")
-                        .IsUnique()
-                        .HasFilter("[DeviceId] IS NOT NULL");
 
                     b.HasIndex("UserName")
                         .IsUnique();
@@ -266,7 +265,8 @@ namespace Cortex_Api.Migrations
                 {
                     b.HasOne("Cortex_Api.Data.Models.Device", "device")
                         .WithMany("Auditlogs")
-                        .HasForeignKey("DeviceId");
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Cortex_Api.Data.Models.User", "user")
                         .WithMany("Auditlogs")
@@ -288,11 +288,23 @@ namespace Cortex_Api.Migrations
                     b.Navigation("AccountMetaDatas");
                 });
 
+            modelBuilder.Entity("Cortex_Api.Data.Models.Device", b =>
+                {
+                    b.HasOne("Cortex_Api.Data.Models.User", "user")
+                        .WithOne("device")
+                        .HasForeignKey("Cortex_Api.Data.Models.Device", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
             modelBuilder.Entity("Cortex_Api.Data.Models.SecurityEvent", b =>
                 {
                     b.HasOne("Cortex_Api.Data.Models.Device", "device")
                         .WithMany("SecurityEvents")
-                        .HasForeignKey("DeviceId");
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Cortex_Api.Data.Models.User", "user")
                         .WithMany("SecurityEvents")
@@ -301,15 +313,6 @@ namespace Cortex_Api.Migrations
                     b.Navigation("device");
 
                     b.Navigation("user");
-                });
-
-            modelBuilder.Entity("Cortex_Api.Data.Models.User", b =>
-                {
-                    b.HasOne("Cortex_Api.Data.Models.Device", "device")
-                        .WithOne()
-                        .HasForeignKey("Cortex_Api.Data.Models.User", "DeviceId");
-
-                    b.Navigation("device");
                 });
 
             modelBuilder.Entity("Cortex_Api.Data.Models.AccountMetaData", b =>
@@ -331,6 +334,8 @@ namespace Cortex_Api.Migrations
                     b.Navigation("Auditlogs");
 
                     b.Navigation("SecurityEvents");
+
+                    b.Navigation("device");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
 ﻿using Cortex_Api.Data;
+using Cortex_Api.Data.Enums;
 using Cortex_Api.Data.Models;
 using Cortex_Api.Services.IServices;
 

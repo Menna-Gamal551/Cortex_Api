@@ -1,4 +1,6 @@
-﻿namespace Cortex_Api.Data.Models.DTOs
+﻿using Cortex_Api.Data.Enums;
+
+namespace Cortex_Api.Data.Models.DTOs
 {
     public class SecurityEventDto
     {

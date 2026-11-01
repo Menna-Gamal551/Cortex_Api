@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace Cortex_Api.Data.Models
 {
@@ -6,15 +7,27 @@ namespace Cortex_Api.Data.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         [MaxLength(100)]
-        public required string  DeviceUid  { get; set; }
+        public required string DeviceUid { get; set; }
+
+        [Required]
+        public required string PublicKey { get; set; }
+
         [MaxLength(50)]
         public string? FirmwareVersion { get; set; }
-        public DateTime PairedAt { get; set; }
-        public DateTime? LastConnectedAt { get; set;}
-        public bool IsPaired { get; set;}
-        public ICollection<Auditlog>? Auditlogs { get; set; }
-        public ICollection<SecurityEvent>? SecurityEvents { get; set; }
+
+        public DateTime? PairedAt { get; set; }
+
+        public DateTime? LastConnectedAt { get; set; }
+
+        public bool IsPaired { get; set; }
+
+        public ICollection<Auditlog> Auditlogs { get; set; }
+            = new List<Auditlog>();
+
+        public ICollection<SecurityEvent> SecurityEvents { get; set; }
+            = new List<SecurityEvent>();
     }
 }

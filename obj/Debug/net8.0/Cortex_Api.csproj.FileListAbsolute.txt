@@ -1,13 +1,14 @@
+C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Cortex_Api.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\appsettings.json
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Cortex_Api.exe
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Cortex_Api.deps.json
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Cortex_Api.runtimeconfig.json
-C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Cortex_Api.dll
-C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Cortex_Api.pdb
+C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Humanizer.dll
+C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -26,6 +27,7 @@ C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Extensions.Dep
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
@@ -49,6 +51,7 @@ C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Composition.Hosti
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Formats.Asn1.dll
 C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
@@ -128,6 +131,7 @@ C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.AssemblyInfo.
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.csproj.CoreCompileInputs.cache
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.sourcelink.json
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\staticwebassets\msbuild.Cortex_Api.Microsoft.AspNetCore.StaticWebAssets.props
@@ -141,9 +145,5 @@ C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.dll
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\refint\Cortex_Api.dll
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.pdb
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.genruntimeconfig.cache
+C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Cortex_Api.pdb
 C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\ref\Cortex_Api.dll
-C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\AutoMapper.dll
-C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\merra\source\repos\Cortex_Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\merra\source\repos\Cortex_Api\obj\Debug\net8.0\Cortex_Api.sourcelink.json

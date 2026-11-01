@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cortex_Api.Data.Models
@@ -7,20 +8,28 @@ namespace Cortex_Api.Data.Models
     {
         [Key]
         public int Id { get; set; }
-       
-        [MaxLength(20)]
-        public required SecurityEventSeverity Severity { get; set; }
+
+        [Required]
+        public SecurityEventSeverity Severity { get; set; }
+
+        [Required]
         [MaxLength(100)]
         public required string EventType { get; set; }
-        public DateTime OccuredAt { get; set; } = DateTime.Now;
+
+        public DateTime OccurredAt { get; set; } = DateTime.UtcNow;
+
         [MaxLength(1000)]
         public string? Details { get; set; }
-        [ForeignKey("UserId")]
+
         public int? UserId { get; set; }
-        public User? user { get; set; }
-        [ForeignKey("DeviceId")]
+
+        [ForeignKey(nameof(UserId))]
+        public User? User { get; set; }
+
         public int? DeviceId { get; set; }
-        public Device? device { get; set; }
-    
+
+        [ForeignKey(nameof(DeviceId))]
+        public Device? Device { get; set; }
+    }
 }
-}
+

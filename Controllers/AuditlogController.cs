@@ -37,7 +37,7 @@ namespace Cortex_Api.Controllers
             if (!TryGetCurrentUserId(out var userId))
                 return Unauthorized();
 
-            var logs = await _db.Auditlogs.Where(a => a.UserId == userId).OrderByDescending(a => a.OccuredAt).ToListAsync();
+            var logs = await _db.Auditlogs.Where(a => a.UserId == userId).OrderByDescending(a => a.OccurredAt).ToListAsync();
 
             var logsDto = _mapper.Map<IEnumerable<AuditlogDto>>(logs);
 

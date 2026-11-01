@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cortex_Api.Data.Models
@@ -7,16 +8,22 @@ namespace Cortex_Api.Data.Models
     {
         [Key]
         public int Id { get; set; }
- 
-        public DateTime CheckedAT { get; set; }
+
+        public DateTime CheckedAt { get; set; } = DateTime.UtcNow;
+
+        [Required]
         [MaxLength(30)]
-        public string Status { get; set; }
+        public required string Status { get; set; }
+
         [MaxLength(200)]
         public string? Source { get; set; }
+
         [MaxLength(1000)]
         public string? Details { get; set; }
-        [ForeignKey("AccountMetaDataId")]
+
         public int AccountMetaDataId { get; set; }
-        public AccountMetaData? AccountMetaDatas { get; set; }
+
+        [ForeignKey(nameof(AccountMetaDataId))]
+        public AccountMetaData? AccountMetaData { get; set; }
     }
 }

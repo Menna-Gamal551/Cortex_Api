@@ -6,7 +6,7 @@ namespace Cortex_Api.Services.IServices
     {
         Task<bool> IsUserNameExistAsync(string userName);
         Task<LoginResponseDto> LoginAsync(LoginRequestDto loginRequestDto);
-        Task<UserDto?> RegisterAsync(RegisterRequestDto registerRequestDto);
+        Task<UserDto> RegisterAsync(RegisterRequestDto registerRequestDto);
 
     }
 }

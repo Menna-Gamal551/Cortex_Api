@@ -19,7 +19,7 @@ namespace Cortex_Api.Services
             {
                 UserId = userId,
                 Action = action,
-                OccuredAt = DateTime.UtcNow,
+                OccurredAt = DateTime.UtcNow,
                 Details = details
             };
 

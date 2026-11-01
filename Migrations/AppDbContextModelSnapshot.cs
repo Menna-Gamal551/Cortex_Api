@@ -86,7 +86,7 @@ namespace Cortex_Api.Migrations
                     b.Property<int?>("DeviceId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("OccuredAt")
+                    b.Property<DateTime>("OccurredAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("UserId")
@@ -112,7 +112,7 @@ namespace Cortex_Api.Migrations
                     b.Property<int>("AccountMetaDataId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CheckedAT")
+                    b.Property<DateTime>("CheckedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Details")
@@ -158,8 +158,12 @@ namespace Cortex_Api.Migrations
                     b.Property<DateTime?>("LastConnectedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("PairedAt")
+                    b.Property<DateTime?>("PairedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("PublicKey")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -167,6 +171,50 @@ namespace Cortex_Api.Migrations
                         .IsUnique();
 
                     b.ToTable("Devices");
+                });
+
+            modelBuilder.Entity("Cortex_Api.Data.Models.DevicePairingAttempt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Challenge")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DeviceId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PairingId")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceId");
+
+                    b.HasIndex("PairingId")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DevicePairingAttempts");
                 });
 
             modelBuilder.Entity("Cortex_Api.Data.Models.SecurityEvent", b =>
@@ -189,11 +237,10 @@ namespace Cortex_Api.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("OccuredAt")
+                    b.Property<DateTime>("OccurredAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Severity")
-                        .HasMaxLength(20)
                         .HasColumnType("int");
 
                     b.Property<int?>("UserId")
@@ -227,7 +274,7 @@ namespace Cortex_Api.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -243,7 +290,7 @@ namespace Cortex_Api.Migrations
 
                     b.HasIndex("DeviceId")
                         .IsUnique()
-                        .HasFilter("[DeviceId] IS NOT NULL");
+                        .HasFilter("[DeviceId] is not null");
 
                     b.HasIndex("UserName")
                         .IsUnique();
@@ -253,63 +300,87 @@ namespace Cortex_Api.Migrations
 
             modelBuilder.Entity("Cortex_Api.Data.Models.AccountMetaData", b =>
                 {
-                    b.HasOne("Cortex_Api.Data.Models.User", "user")
+                    b.HasOne("Cortex_Api.Data.Models.User", "User")
                         .WithMany("AccountMetaDatas")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("user");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cortex_Api.Data.Models.Auditlog", b =>
                 {
-                    b.HasOne("Cortex_Api.Data.Models.Device", "device")
+                    b.HasOne("Cortex_Api.Data.Models.Device", "Device")
                         .WithMany("Auditlogs")
-                        .HasForeignKey("DeviceId");
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("Cortex_Api.Data.Models.User", "user")
+                    b.HasOne("Cortex_Api.Data.Models.User", "User")
                         .WithMany("Auditlogs")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
-                    b.Navigation("device");
+                    b.Navigation("Device");
 
-                    b.Navigation("user");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cortex_Api.Data.Models.BreachResult", b =>
                 {
-                    b.HasOne("Cortex_Api.Data.Models.AccountMetaData", "AccountMetaDatas")
+                    b.HasOne("Cortex_Api.Data.Models.AccountMetaData", "AccountMetaData")
                         .WithMany("BreachResults")
                         .HasForeignKey("AccountMetaDataId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AccountMetaDatas");
+                    b.Navigation("AccountMetaData");
+                });
+
+            modelBuilder.Entity("Cortex_Api.Data.Models.DevicePairingAttempt", b =>
+                {
+                    b.HasOne("Cortex_Api.Data.Models.Device", "Device")
+                        .WithMany()
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cortex_Api.Data.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Device");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cortex_Api.Data.Models.SecurityEvent", b =>
                 {
-                    b.HasOne("Cortex_Api.Data.Models.Device", "device")
+                    b.HasOne("Cortex_Api.Data.Models.Device", "Device")
                         .WithMany("SecurityEvents")
-                        .HasForeignKey("DeviceId");
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("Cortex_Api.Data.Models.User", "user")
+                    b.HasOne("Cortex_Api.Data.Models.User", "User")
                         .WithMany("SecurityEvents")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
-                    b.Navigation("device");
+                    b.Navigation("Device");
 
-                    b.Navigation("user");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cortex_Api.Data.Models.User", b =>
                 {
-                    b.HasOne("Cortex_Api.Data.Models.Device", "device")
+                    b.HasOne("Cortex_Api.Data.Models.Device", "Device")
                         .WithOne()
-                        .HasForeignKey("Cortex_Api.Data.Models.User", "DeviceId");
+                        .HasForeignKey("Cortex_Api.Data.Models.User", "DeviceId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
-                    b.Navigation("device");
+                    b.Navigation("Device");
                 });
 
             modelBuilder.Entity("Cortex_Api.Data.Models.AccountMetaData", b =>

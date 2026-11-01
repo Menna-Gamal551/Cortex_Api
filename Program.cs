@@ -8,6 +8,7 @@ using Cortex_Api.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using Cortex_Api.Data.Models.DTOs.DeviceDTOs;
 
 namespace Cortex_Api
 {
@@ -44,19 +45,33 @@ namespace Cortex_Api
             builder.Services.AddControllers();
             builder.Services.AddAutoMapper(op =>
             {
-                op.CreateMap<User,UserDto >().ReverseMap();
-                op.CreateMap<CreateAccountMetaDataDto,AccountMetaData >().ReverseMap();
-                op.CreateMap<CreateAccountMetaDataDto,AccountMetaDataDto >().ReverseMap();
-                op.CreateMap<UpdateAccountMetaDataDto,AccountMetaDataDto >().ReverseMap();
-                op.CreateMap<UpdateAccountMetaDataDto,AccountMetaData >().ReverseMap();
-                op.CreateMap<AccountMetaDataDto,AccountMetaData >().ReverseMap();
-                op.CreateMap<Auditlog, AuditlogDto>().ReverseMap();
-                op.CreateMap<SecurityEvent, SecurityEventDto>().ReverseMap();
+                op.CreateMap<User, UserDto>();
+
+                op.CreateMap<AccountMetaData, AccountMetaDataDto>();
+
+                op.CreateMap<CreateAccountMetaDataDto, AccountMetaData>();
+
+                op.CreateMap<UpdateAccountMetaDataDto, AccountMetaData>();
+
+                op.CreateMap<Auditlog, AuditlogDto>()
+                    .ForMember(
+                        dest => dest.OccurredAt,
+                        opt => opt.MapFrom(src => src.OccurredAt));
+
+                op.CreateMap<SecurityEvent, SecurityEventDto>()
+                    .ForMember(
+                        dest => dest.OccuredAt,
+                        opt => opt.MapFrom(src => src.OccurredAt));
+              op.CreateMap<Device, DeviceDto>();
+              
             });
 
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IAuditLogService, AuditLogService>();
             builder.Services.AddScoped<ISecurityEventService, SecurityEventService>();
+            builder.Services.AddScoped<IDeviceService, DeviceService>();
+
+           builder.Services.AddScoped<IDeviceSignatureVerifier,DeviceSignatureVerifier>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -80,4 +95,6 @@ namespace Cortex_Api
             app.Run();
         }
     }
+
+   
 }

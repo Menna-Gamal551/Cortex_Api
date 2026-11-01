@@ -22,7 +22,7 @@ namespace Cortex_Api.Services
                 Details = details,
                 UserId = userId,
                 DeviceId = deviceId,
-                OccuredAt = DateTime.UtcNow
+                OccurredAt = DateTime.UtcNow
             };
 
             _db.SecurityEvents.Add(securityEvent);

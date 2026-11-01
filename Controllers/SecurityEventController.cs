@@ -38,7 +38,7 @@ namespace Cortex_Api.Controllers
             if (!TryGetCurrentUserId(out var userId))
                 return Unauthorized();
 
-            var events = await _db.SecurityEvents.AsNoTracking().Where(e => e.UserId == userId).OrderByDescending(e => e.OccuredAt).ToListAsync();
+            var events = await _db.SecurityEvents.AsNoTracking().Where(e => e.UserId == userId).OrderByDescending(e => e.OccurredAt).ToListAsync();
 
             var eventsDto =_mapper.Map<IEnumerable<SecurityEventDto>>(events);
 

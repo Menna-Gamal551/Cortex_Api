@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cortex_Api.Data.Models
@@ -7,24 +8,35 @@ namespace Cortex_Api.Data.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         [MaxLength(50)]
         public required string Name { get; set; }
+
         [Required]
         [MaxLength(100)]
         public required string UserName { get; set; }
+
         [Required]
-        public required string Password { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public required string PasswordHash { get; set; }
+
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+
         public DateTime? UpdateDate { get; set; }
 
-        [ForeignKey("deviceId")]
-        public int ? DeviceId { get; set; }
-        public Device? device { get; set; }
+        public int? DeviceId { get; set; }
 
-        public ICollection<AccountMetaData>? AccountMetaDatas { get; set; }
-        public ICollection<Auditlog>?Auditlogs { get; set; }
-        public ICollection<SecurityEvent>?SecurityEvents { get; set; }
+        [ForeignKey(nameof(DeviceId))]
+        public Device? Device { get; set; }
 
+        public ICollection<AccountMetaData> AccountMetaDatas { get; set; }
+            = new List<AccountMetaData>();
+
+        public ICollection<Auditlog> Auditlogs { get; set; }
+            = new List<Auditlog>();
+
+        public ICollection<SecurityEvent> SecurityEvents { get; set; }
+            = new List<SecurityEvent>();
     }
 }
+

@@ -11,6 +11,7 @@ namespace Cortex_Api.Data.Models.DTOs
         [MaxLength(100)]
         public required string UserName { get; set; }
         [Required]
+        [MinLength(8)]
         public required string Password { get; set; }
     }
 }

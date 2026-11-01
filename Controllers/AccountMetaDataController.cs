@@ -159,7 +159,7 @@ namespace Cortex_Api.Controllers
 
                
                 existingAccountMetaData.UserId = userId;
-                existingAccountMetaData.UpdatedAt = DateTime.Now;
+                existingAccountMetaData.UpdatedAt = DateTime.UtcNow;
 
                 await _db.SaveChangesAsync();
                 await _auditLogService.LogAsync(userId,"AccountMetaDataUpdated", $"Account metadata updated. Record ID: {id}");
